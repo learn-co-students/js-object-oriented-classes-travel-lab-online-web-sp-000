@@ -58,7 +58,7 @@ describe('Route', function() {
         { horizontal: '1st Avenue', vertical: '34' },
         { horizontal: 'Park', vertical: '45' }
       );
-      expect(route.estimatedTime()).to.equal(5);
+      expect(route.estimatedTime()).to.equal(7.5);
     });
 
     it('estimates time in minutes, with travel time of two blocks in a minute during peak hours', function() {
