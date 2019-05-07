@@ -25,7 +25,6 @@ let eastWest = [
 
 class Route{
   constructor(beginningLocation, endingLocation) {
-        // debugger
     this.beginningLocation = beginningLocation;
 
     this.endingLocation = endingLocation;
@@ -35,10 +34,10 @@ class Route{
   return this.endingLocation['vertical'] - this.beginningLocation['vertical'] + eastWest.indexOf(this.endingLocation['horizontal']) - eastWest.indexOf(this.beginningLocation['horizontal']);
   }
   estimatedTime(peak){
-    if(peak){
-      return this.blocksTravelled()/2;
-    } else {
+    if(!peak){
       return this.blocksTravelled()/3;
+    } else {
+      return this.blocksTravelled()/2;
     }
   }
 }
