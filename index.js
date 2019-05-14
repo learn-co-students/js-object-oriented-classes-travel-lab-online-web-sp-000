@@ -10,7 +10,7 @@ class Driver {
 }
 
 class Route {
-  constructor( beginningLocation, endingLocation ) {
+  constructor(beginningLocation, endingLocation) {
     this.beginningLocation = beginningLocation;
     this.endingLocation = endingLocation;
   }
@@ -26,13 +26,13 @@ class Route {
       '5th Avenue'
     ];
 
-    let beginningStreet = this.beginningLocation.vertical;
-    let endingStreet = this.endingLocation.vertical;
-    let beginningAvenue = eastWest.indexOf(this.beginningLocation.horizontal);
-    let endingAvenue = eastWest.indexOf(this.endingLocation.horizontal);
+    const beginningStreet = this.beginningLocation.vertical;
+    const endingStreet = this.endingLocation.vertical;
+    const beginningAvenue = eastWest.indexOf(this.beginningLocation.horizontal);
+    const endingAvenue = eastWest.indexOf(this.endingLocation.horizontal);
 
-    let verticalDistance = Math.abs(beginningStreet - endingStreet);
-    let horizontalDistance = Math.abs(beginningAvenue - endingAvenue);
+    const verticalDistance = Math.abs(beginningStreet - endingStreet);
+    const horizontalDistance = Math.abs(beginningAvenue - endingAvenue);
 
     return verticalDistance + horizontalDistance;
   }
@@ -41,7 +41,7 @@ class Route {
     if (peak) {
       return this.blocksTravelled() / 2;
     } else {
-      return this.blocksTravelled()/ 3;
+      return this.blocksTravelled() / 3;
     }
   }
 }
