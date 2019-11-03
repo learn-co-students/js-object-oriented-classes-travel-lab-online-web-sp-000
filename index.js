@@ -1,44 +1,43 @@
 let eastWest = [
-      '1st Avenue',
-      '2nd Avenue',
-      '3rd Avenue',
-      'Lexington Avenue',
-      'Park',
-      'Madison Avenue',
-      '5th Avenue'
-        ];
+  '1st Avenue',
+  '2nd Avenue',
+  '3rd Avenue',
+  'Lexington Avenue',
+  'Park',
+  'Madison Avenue',
+  '5th Avenue'
+];
+
 
 class Driver {
-  constructor(name, startDate) {
+  constructor (name, dateString) {
     this.name = name;
-    this.startDate = new Date(startDate);
+    this.startDate = new Date (dateString);
   }
   
-  yearsExperienceFromBeginningOf(year) {
-    let currentDate = new Date(year, 1, 1);
-      let yearsOfExperience = (currentDate - this.startDate) / (365 * 24 * 60 * 60 * 1000);
-      return parseInt(yearsOfExperience);
-    }
+  yearsExperienceFromBeginningOf(currentYear) {
+    // Jan 1, 1995
+    return currentYear - this.startDate.getFullYear();
+  }
 }
 
+
 class Route {
-  constructor(beginningLocation, endingLocation) {
-    this.beginningLocation = beginningLocation;
-    this.endingLocation = endingLocation;
+  constructor (beginningLocationObject, endingLocationObject) {
+    this.beginningLocationObject = beginningLocationObject;
+    this.endingLocationObject = endingLocationObject;
   }
   
   blocksTravelled() {
-    let northSouthBlocks = Math.abs(this.beginningLocation.vertical - this.endingLocation.vertical);
-    let eastWestBlocks = Math.abs(eastWest.indexOf(this.beginningLocation.horizontal) - eastWest.indexOf(this.endingLocation.horizontal))
-    return northSouthBlocks + eastWestBlocks
+    return Math.abs(eastWest.indexOf(this.beginningLocationObject.horizontal) - eastWest.indexOf(this.endingLocationObject.horizontal)) + Math.abs( (this.beginningLocationObject.vertical) -            (this.endingLocationObject.vertical));
   }
   
   estimatedTime(peak) {
-    if (peak === true) {
-      return this.blocksTravelled() / 2 
-    }  else {
-      return this.blocksTravelled() / 3
+    if (peak) {
+      return this.blocksTravelled() / 2;
+    }
+    else {
+      return this.blocksTravelled() / 3;
     }
   }
-  
 }
