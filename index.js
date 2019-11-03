@@ -16,7 +16,6 @@ class Driver {
   }
   
   yearsExperienceFromBeginningOf(currentYear) {
-    // Jan 1, 1995
     return currentYear - this.startDate.getFullYear();
   }
 }
